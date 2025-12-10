@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Персона - Film Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/person.css" />
+</head>
+<body class="bg-background-dark font-display">
+  <div class="movie-page">
+    <div id="site-header" class="movie-header"></div>
+
+    <main class="movie-main">
+      <div class="movie-container container">
+        <div class="movie-layout">
+          <section class="movie-grid" id="personContent">
+            <aside class="movie-sidebar">
+              <div id="personPhoto" class="movie-poster-large"></div>
+            </aside>
+
+            <section class="movie-content">
+              <header class="movie-heading">
+                <h1 class="movie-title" id="personName">Загрузка...</h1>
+                <p class="movie-original-title" id="personType"></p>
+              </header>
+
+              <section class="movie-info">
+                <div class="info-row">
+                  <div class="info-label">Страна</div>
+                  <div class="info-value" id="personCountry"></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-label">Дата рождения</div>
+                  <div class="info-value" id="personBirth"></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-label">Дата смерти</div>
+                  <div class="info-value" id="personDeath"></div>
+                </div>
+              </section>
+
+              <section class="movie-synopsis">
+                <h2 class="section-title">Биография</h2>
+                <p class="synopsis-text" id="personBio"></p>
+              </section>
+
+              <section class="movie-actors">
+                <h2 class="section-title" id="personMoviesTitle">Фильмы</h2>
+                <div class="actors-grid" id="personMovies"></div>
+              </section>
+            </section>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <div id="site-modals"></div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/person-page.js"></script>
+</body>
+</html>
+
+

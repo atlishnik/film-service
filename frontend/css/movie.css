@@ -1,0 +1,250 @@
+/* Стили для страницы фильма (movie.html) */
+
+.movie-page {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.movie-container {
+  padding: 1.25rem;
+}
+
+@media (min-width: 640px) {
+  .movie-container {
+    padding: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .movie-container {
+    padding: 3rem 4rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .movie-container {
+    padding: 3rem 5rem;
+  }
+}
+
+.movie-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.movie-main {
+  flex: 1;
+}
+
+.movie-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+@media (min-width: 1024px) {
+  .movie-grid {
+    grid-template-columns: 1fr 2fr;
+    gap: 3rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .movie-grid {
+    gap: 4rem;
+  }
+}
+
+/* Movie Page Specific */
+.movie-sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.movie-poster-large {
+  width: 100%;
+  aspect-ratio: 2/3;
+  border-radius: var(--border-radius);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.movie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.movie-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.movie-title {
+  font-size: 2.25rem;
+  font-weight: 900;
+  line-height: 1.2;
+  letter-spacing: -0.033em;
+  color: var(--text-primary-dark);
+}
+
+@media (min-width: 1024px) {
+  .movie-title {
+    font-size: 3rem;
+  }
+}
+
+.movie-original-title {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: var(--text-secondary-dark);
+}
+
+.movie-rating {
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: var(--primary);
+}
+
+.movie-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.movie-info {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  border-top: 1px solid var(--subtle-dark);
+  border-bottom: 1px solid var(--subtle-dark);
+  padding: 1.5rem 0;
+}
+
+.info-row {
+  display: flex;
+}
+
+.info-label {
+  width: 33.333%;
+  color: var(--text-secondary-dark);
+}
+
+.info-value {
+  width: 66.667%;
+  color: var(--text-primary-dark);
+}
+
+.info-value.link {
+  color: var(--text-primary-dark);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.info-value.link:hover {
+  color: var(--primary);
+}
+
+.genre-tag {
+  display: inline-block;
+  background-color: var(--subtle-dark);
+  color: var(--text-secondary-dark);
+  padding: 0.25rem 0.75rem;
+  border-radius: var(--border-radius-full);
+  font-size: 0.875rem;
+  text-decoration: none;
+  transition: var(--transition);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.genre-tag:hover {
+  background-color: var(--primary);
+  color: var(--background-dark);
+}
+
+.movie-synopsis {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.synopsis-text {
+  color: var(--text-secondary-dark);
+  line-height: 1.75;
+}
+
+.movie-actors {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.actors-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+@media (min-width: 640px) {
+  .actors-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 768px) {
+  .actors-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .actors-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.movie-reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25rem 0;
+}
+
+.reviews-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.review-card {
+  background-color: var(--surface-dark);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Actor cards */
+.actor-card { display:flex; flex-direction:column; align-items:center; gap:0.75rem; width:8rem; text-align:center; flex:0 0 auto; }
+.actor-card.detailed { text-decoration:none; color:inherit; }
+.actor-photo { width:8rem; height:8rem; border-radius:50%; background-size:cover; background-position:center; background-repeat:no-repeat; border:2px solid transparent; transition: var(--transition-slow); }
+.actor-photo:hover { border-color: var(--primary); }
+.actor-photo.small { width:6rem; height:6rem; margin-bottom:0.5rem; overflow:hidden; transition:transform 0.3s ease; }
+.actor-card.detailed:hover .actor-photo.small { transform: scale(1.05); }
+.actor-name { font-size:0.95rem; font-weight:500; color:var(--text-primary-dark); }
+.actor-role { font-size:0.75rem; color:var(--text-secondary-dark); }

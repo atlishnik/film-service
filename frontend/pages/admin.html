@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Админ-панель | Film Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/admin.css" />
+</head>
+<body class="bg-background-dark font-display">
+  <div class="admin-panel">
+    <!-- Хедер для админки -->
+    <header class="header" style="background: #231b0f;">
+      <div class="container" style="display:flex;align-items:center;justify-content:space-between;gap:1rem;">
+        <div style="display:flex;align-items:center;gap:2rem;min-width:0;">
+          <a href="/index.html" class="flex items-center gap-3 text-white" style="text-decoration:none">
+            <div class="logo-icon">
+              <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                <path d="M44 11.2727C44 14.0109 39.8386 16.3957 33.69 17.6364C39.8386 18.877 44 21.2618 44 24C44 26.7382 39.8386 29.123 33.69 30.3636C39.8386 31.6043 44 33.9891 44 36.7273C44 40.7439 35.0457 44 24 44C12.9543 44 4 40.7439 4 36.7273C4 33.9891 8.16144 31.6043 14.31 30.3636C8.16144 29.123 4 26.7382 4 24C4 21.2618 8.16144 18.877 14.31 17.6364C8.16144 16.3957 4 14.0109 4 11.2727C4 7.25611 12.9543 4 24 4C35.0457 4 44 7.25611 44 11.2727Z" fill="currentColor"></path>
+              </svg>
+            </div>
+            <h2 class="logo-text">Film Service</h2>
+          </a>
+          <div style="font-size: 0.875rem; color: #ff9d0a; font-weight: 600; background: rgba(255, 157, 10, 0.1); padding: 0.5rem 1rem; border-radius: 20px;">
+            Админ-панель
+          </div>
+        </div>
+        <div class="header-actions">
+          <!-- Здесь будет авторизация -->
+        </div>
+      </div>
+    </header>
+
+    <div class="admin-layout">
+      <!-- Боковая панель -->
+      <aside class="admin-sidebar" id="adminSidebar">
+        <div class="admin-brand">
+          <div class="admin-brand-icon">
+            <span class="material-symbols-outlined" style="color: #181510;">dashboard</span>
+          </div>
+          <div class="admin-brand-text">Админ-центр</div>
+        </div>
+        
+        <nav class="admin-nav">
+          <a href="#dashboard" class="admin-nav-item active" data-section="dashboard">
+            <span class="admin-nav-icon material-symbols-outlined">dashboard</span>
+            <span>Дашборд</span>
+          </a>
+          
+          <a href="#movies" class="admin-nav-item" data-section="movies">
+            <span class="admin-nav-icon material-symbols-outlined">movie</span>
+            <span>Фильмы</span>
+          </a>
+          
+          <a href="#actors" class="admin-nav-item" data-section="actors">
+            <span class="admin-nav-icon material-symbols-outlined">person</span>
+            <span>Актёры</span>
+          </a>
+          
+          <a href="#directors" class="admin-nav-item" data-section="directors">
+            <span class="admin-nav-icon material-symbols-outlined">directions</span>
+            <span>Режиссёры</span>
+          </a>
+          
+          <a href="#users" class="admin-nav-item" data-section="users">
+            <span class="admin-nav-icon material-symbols-outlined">group</span>
+            <span>Пользователи</span>
+          </a>
+          
+          <a href="#genres" class="admin-nav-item" data-section="genres">
+            <span class="admin-nav-icon material-symbols-outlined">category</span>
+            <span>Жанры</span>
+          </a>
+          
+          <a href="#reviews" class="admin-nav-item" data-section="reviews">
+            <span class="admin-nav-icon material-symbols-outlined">rate_review</span>
+            <span>Отзывы</span>
+          </a>
+          
+          <div style="margin-top: auto; padding-top: 2rem; border-top: 1px solid #2c2c2c;">
+            <a href="/index.html" class="admin-nav-item">
+              <span class="admin-nav-icon material-symbols-outlined">home</span>
+              <span>На сайт</span>
+            </a>
+          </div>
+        </nav>
+      </aside>
+
+      <!-- Основное содержимое -->
+      <main class="admin-main">
+        <section id="section-dashboard" class="admin-section">
+          <div class="admin-header">
+            <div>
+              <h1 class="admin-header-title">Дашборд</h1>
+              <p class="admin-header-subtitle">Обзор статистики и управления системой</p>
+            </div>
+          </div>
+          <div id="statsCards" class="admin-stats-grid"></div>
+          <div class="admin-dashboard-grid">
+            <div class="card admin-dashboard-card">
+              <div class="section-header">
+                <h3 class="section-title">Последние отзывы</h3>
+              </div>
+              <div id="recentReviews" class="admin-table-container" style="flex:1;"></div>
+            </div>
+            <div class="card admin-dashboard-card">
+              <div class="section-header">
+                <h3 class="section-title">Топ рецензенты</h3>
+              </div>
+              <div id="topReviewers" class="admin-table-container" style="flex:1;"></div>
+            </div>
+          </div>
+        </section>
+
+        <section id="section-movies" class="admin-section hidden">
+          <div class="section-header">
+            <h3 class="section-title">Фильмы</h3>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+              <button id="addMovieBtn" class="btn btn-primary" style="display:flex;align-items:center;gap:0.5rem;"><span class="material-symbols-outlined">add</span>Добавить фильм</button>
+            </div>
+          </div>
+          <form id="moviesFilterForm" class="filters">
+            <div class="filter-grid">
+              <label class="filter-field"><span>Поиск</span><input type="text" name="search" /></label>
+              <label class="filter-field"><span>Год</span><input type="number" name="release_year" /></label>
+              <label class="filter-field"><span>Страна</span><input type="text" name="country" /></label>
+              <label class="filter-field"><span>Жанр</span><input type="text" name="genre" /></label>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button class="btn btn-secondary" type="submit">Применить</button>
+              <button class="btn btn-secondary" type="button" id="resetMoviesFilter">Сбросить</button>
+            </div>
+          </form>
+          <div id="moviesTable" class="table"></div>
+        </section>
+
+        <section id="section-actors" class="admin-section hidden">
+          <div class="section-header">
+            <h3 class="section-title">Актёры</h3>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+              <button id="addActorBtn" class="btn btn-primary" style="display:flex;align-items:center;gap:0.5rem;"><span class="material-symbols-outlined">add</span>Добавить актёра</button>
+            </div>
+          </div>
+          <form id="actorsFilterForm" class="filters">
+            <div class="filter-grid">
+              <label class="filter-field"><span>Поиск</span><input type="text" name="search" /></label>
+              <label class="filter-field"><span>Страна</span><input type="text" name="country" /></label>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button class="btn btn-secondary" type="submit">Применить</button>
+              <button class="btn btn-secondary" type="button" id="resetActorsFilter">Сбросить</button>
+            </div>
+          </form>
+          <div id="actorsTable" class="table"></div>
+        </section>
+
+        <section id="section-directors" class="admin-section hidden">
+          <div class="section-header">
+            <h3 class="section-title">Режиссёры</h3>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+              <button id="addDirectorBtn" class="btn btn-primary" style="display:flex;align-items:center;gap:0.5rem;"><span class="material-symbols-outlined">add</span>Добавить режиссёра</button>
+            </div>
+          </div>
+          <form id="directorsFilterForm" class="filters">
+            <div class="filter-grid">
+              <label class="filter-field"><span>Поиск</span><input type="text" name="search" /></label>
+              <label class="filter-field"><span>Страна</span><input type="text" name="country" /></label>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button class="btn btn-secondary" type="submit">Применить</button>
+              <button class="btn btn-secondary" type="button" id="resetDirectorsFilter">Сбросить</button>
+            </div>
+          </form>
+          <div id="directorsTable" class="table"></div>
+        </section>
+
+        <section id="section-users" class="admin-section hidden">
+          <div class="section-header">
+            <h3 class="section-title">Пользователи</h3>
+          </div>
+          <form id="usersFilterForm" class="filters">
+            <div class="filter-grid">
+              <label class="filter-field"><span>Поиск</span><input type="text" name="search" /></label>
+            </div>
+            <div style="display:flex;gap:0.5rem;">
+              <button class="btn btn-secondary" type="submit">Применить</button>
+              <button class="btn btn-secondary" type="button" id="resetUsersFilter">Сбросить</button>
+            </div>
+          </form>
+          <div id="usersTable" class="table"></div>
+        </section>
+
+        <section id="section-genres" class="admin-section hidden">
+          <div class="section-header">
+            <h3 class="section-title">Жанры</h3>
+            <div style="display:flex;gap:0.5rem;align-items:center;">
+              <button id="addGenreBtn" class="btn btn-primary" style="display:flex;align-items:center;gap:0.5rem;"><span class="material-symbols-outlined">add</span>Добавить жанр</button>
+            </div>
+          </div>
+          <form id="genresFilterForm" class="filters">
+            <div class="filter-grid">
+              <label class="filter-field"><span>Поиск</span><input type="text" name="search" placeholder="Введите название жанра" /></label>
+            </div>
+          </form>
+          <div id="genresTable" class="table"></div>
+        </section>
+
+        <section id="section-reviews" class="admin-section hidden">
+          <div class="section-header">
+            <h3 class="section-title">Отзывы</h3>
+            <div class="section-subtitle" style="color:var(--text-secondary)">Скрытие и удаление отзывов</div>
+          </div>
+          <div id="reviewsTable" class="table"></div>
+        </section>
+
+      </main>
+    </div>
+  </div>
+
+  <div id="site-modals"></div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/admin-page.js"></script>
+</body>
+</html>

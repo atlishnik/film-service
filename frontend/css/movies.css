@@ -1,0 +1,162 @@
+/* Стили для страницы фильмов (movies.html) */
+
+/* Movies filter form */
+.movies-filter {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1.25rem;
+  padding: 1.5rem;
+  border-radius: var(--border-radius);
+  background-color: var(--surface-dark);
+  margin-bottom: 2rem;
+  border: 1px solid var(--border-dark);
+}
+
+@media (max-width: 768px) {
+  .movies-filter {
+    grid-template-columns: 1fr;
+    padding: 1.25rem;
+    gap: 1rem;
+  }
+}
+
+.movies-filter .modal-field {
+  margin: 0;
+}
+
+.movies-filter .modal-field span {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: var(--text-primary-dark);
+  font-size: 0.875rem;
+}
+
+.movies-filter input,
+.movies-filter select {
+  width: 100%;
+  height: 2.75rem;
+  padding: 0.5rem 0.75rem;
+  background-color: var(--surface-darker);
+  border: 1px solid var(--border-dark);
+  border-radius: var(--border-radius);
+  color: var(--text-primary-dark);
+  font-size: 0.875rem;
+  transition: border-color 0.2s ease;
+}
+
+.movies-filter input:focus,
+.movies-filter select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(255, 157, 10, 0.1);
+}
+
+.movies-filter input::placeholder {
+  color: var(--text-secondary-dark);
+}
+
+/* Movies grid */
+.movies-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 1.5rem;
+  padding: 0.5rem 0 2rem;
+}
+
+@media (min-width: 768px) {
+  .movies-list {
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .movies-list {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+/* Empty state */
+.movies-list:empty::before {
+  content: "Фильмы не найдены";
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem 1rem;
+  color: var(--text-secondary-dark);
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+/* Spacing utilities */
+.py-8 {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.pt-0 {
+  padding-top: 0;
+}
+
+/* Section styles */
+.section {
+  padding: 2rem 0;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.25rem 1rem 0.75rem;
+}
+
+.section-title {
+  font-size: 1.375rem;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.015em;
+  color: var(--text-primary-dark);
+}
+
+.section-link {
+  color: var(--primary);
+  font-size: 0.875rem;
+  font-weight: 500;
+  text-decoration: none;
+}
+
+.section-link:hover {
+  text-decoration: underline;
+}
+
+.filter-actions {
+  display: flex;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+
+@media (max-width: 768px) {
+  .filter-actions {
+    grid-column: 1 / -1;
+    margin-top: 0.5rem;
+  }
+}
+
+/* Grid overrides for movie cards inside list */
+.movies-list .movie-card {
+  width: 100%;
+  flex: 0 0 auto;
+}
+.movies-list .movie-poster {
+  width: 100%;
+}
+
+/* Movie card essentials */
+.movie-card { display:flex; flex-direction:column; gap:0.75rem; width:10rem; flex:0 0 auto; }
+@media (min-width:768px){ .movie-card { width:12rem; } }
+.movie-poster { width:100%; aspect-ratio:2/3; border-radius:var(--border-radius); background-size:cover; background-position:center; background-repeat:no-repeat; transition:transform 0.3s ease; position:relative; }
+.movie-poster:hover { transform:scale(1.05); }
+.rating-badge { display:flex; align-items:center; justify-content:center; width:2rem; height:2rem; border-radius:50%; background-color:var(--primary); font-weight:700; color:var(--background-dark); font-size:0.875rem; }
+.movie-info { display:flex; flex-direction:column; gap:0.25rem; }
+.movie-title { font-weight:500; line-height:1.5; color:var(--text-primary-dark); font-size:0.95rem; }
+.movie-year { font-size:0.875rem; font-weight:400; line-height:1.5; color:rgba(255,255,255,0.6); }

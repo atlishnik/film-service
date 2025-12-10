@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Фильмы - Film Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/movies.css" />
+</head>
+<body class="bg-background-dark font-display">
+  <div class="relative flex min-h-screen w-full flex-col">
+    <div id="site-header"></div>
+
+    <main class="main-content">
+      <div class="container py-8">
+        <section class="section pt-0">
+          <div class="section-header">
+            <h2 class="section-title">Фильмы</h2>
+            <div class="flex items-center gap-4">
+              <span class="text-text-primary-dark" id="moviesCount">0 фильмов</span>
+              <a href="#moviesFilter" class="section-link mobile-hidden">
+                Фильтры
+              </a>
+            </div>
+          </div>
+          
+          <form id="moviesFilter" class="movies-filter">
+            <label class="modal-field">
+              <span>Название</span>
+              <input type="text" name="query" placeholder="Введите название фильма" />
+            </label>
+            
+            <label class="modal-field">
+              <span>Год от</span>
+              <input type="number" name="year_from" placeholder="1900" min="1900" max="2030" />
+            </label>
+            
+            <label class="modal-field">
+              <span>Год до</span>
+              <input type="number" name="year_to" placeholder="2024" min="1900" max="2030" />
+            </label>
+            
+            <label class="modal-field">
+              <span>Рейтинг от</span>
+              <input type="number" step="0.1" min="0" max="10" name="min_rating" placeholder="0.0" />
+            </label>
+            
+            <label class="modal-field">
+              <span>Сортировка</span>
+              <select name="sort_by">
+                <option value="">По умолчанию</option>
+                <option value="rating">По рейтингу (убыв.)</option>
+                <option value="year_desc">Год (по убыв.)</option>
+                <option value="year_asc">Год (по возр.)</option>
+                <option value="title">Название (А-Я)</option>
+              </select>
+            </label>
+            
+            <div class="filter-actions">
+              <button type="submit" class="btn btn-primary small">
+                <span class="material-symbols-outlined">search</span>
+                Применить
+              </button>
+              <button type="button" id="resetMoviesFilter" class="btn btn-secondary small">
+                <span class="material-symbols-outlined">refresh</span>
+                Сбросить
+              </button>
+            </div>
+          </form>
+
+          <div id="moviesList" class="movies-list"></div>
+        </section>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <div id="site-modals"></div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/movies-page.js"></script>
+</body>
+</html>

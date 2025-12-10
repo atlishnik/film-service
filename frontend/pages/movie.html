@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Фильм - Film Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/components.css" />
+  <link rel="stylesheet" href="../css/movie.css" />
+</head>
+<body class="bg-background-dark font-display">
+  <div class="movie-page">
+    <div id="site-header" class="movie-header"></div>
+
+    <main class="movie-main">
+      <div class="movie-container container">
+        <div class="movie-layout">
+          <section class="movie-grid" id="movieContent">
+            <!-- Сайдбар с постером -->
+            <aside class="movie-sidebar">
+              <div id="moviePoster" class="movie-poster-large"></div>
+            </aside>
+
+            <!-- Основной контент -->
+            <section class="movie-content">
+              <div id="movieBanner" style="background-size:cover;background-position:center;border-radius:var(--border-radius);padding:1rem;min-height:220px;display:flex;align-items:flex-end;position:relative;margin-bottom:1rem;">
+              <header class="movie-heading">
+                <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:1rem;flex-wrap:wrap;">
+                  <div>
+                    <h1 class="movie-title" id="movieTitle">Загрузка...</h1>
+                    <p class="movie-original-title" id="movieOriginalTitle"></p>
+                    <div class="movie-rating" id="movieRating"></div>
+                  </div>
+                  <div class="movie-actions-inline" style="display:flex;align-items:center;gap:0.5rem;">
+                    <button id="bookmarkButton" class="btn btn-secondary small">Добавить в закладки</button>
+                  </div>
+                </div>
+              </header>
+              </div>
+
+              <section class="movie-info">
+                <div class="info-row">
+                  <div class="info-label">Год</div>
+                  <div class="info-value" id="movieYear"></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-label">Страна</div>
+                  <div class="info-value" id="movieCountry"></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-label">Длительность</div>
+                  <div class="info-value" id="movieDuration"></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-label">Режиссёр</div>
+                  <div class="info-value" id="movieDirector"></div>
+                </div>
+                <div class="info-row">
+                  <div class="info-label">Жанры</div>
+                  <div class="info-value" id="movieGenres"></div>
+                </div>
+              </section>
+
+              <section class="movie-synopsis">
+                <h2 class="section-title">Описание</h2>
+                <p class="synopsis-text" id="movieDescription"></p>
+              </section>
+
+              <section class="movie-actors">
+                <h2 class="section-title">В ролях</h2>
+                <div class="actors-grid" id="movieActors"></div>
+              </section>
+
+              <section class="movie-reviews">
+                <div class="section-header">
+                  <h2 class="section-title">Отзывы</h2>
+                  <button id="openCreateReviewModalTop" class="btn btn-primary small" style="display:none;">Оставить отзыв</button>
+                </div>
+                <div id="movieReviews" class="reviews-container"></div>
+              </section>
+            </section>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <div id="site-modals"></div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/movie-page.js"></script>
+</body>
+</html>
+
+

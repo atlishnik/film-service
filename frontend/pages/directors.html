@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html class="dark" lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+  <title>Режиссёры - Film Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../css/style.css" />
+  <link rel="stylesheet" href="../css/common.css" />
+  <link rel="stylesheet" href="../css/directors.css" />
+</head>
+<body class="bg-background-dark font-display">
+  <div class="relative flex min-h-screen w-full flex-col">
+    <div id="site-header"></div>
+
+    <main class="main-content">
+      <div class="container py-8">
+        <section class="section pt-0">
+          <div class="section-header">
+            <h2 class="section-title">Режиссёры</h2>
+            <div class="flex items-center gap-4">
+              <span class="text-text-primary-dark" id="directorsCount">0 режиссёров</span>
+              <a href="#directorsFilter" class="section-link mobile-hidden">
+                Фильтры
+              </a>
+            </div>
+          </div>
+          
+          <form id="directorsFilter" class="people-filter">
+            <label class="modal-field">
+              <span>Имя</span>
+              <input type="text" name="search" placeholder="Введите имя режиссёра" />
+            </label>
+            
+            <label class="modal-field">
+              <span>Страна</span>
+              <input type="text" name="country" placeholder="Например: США" />
+            </label>
+            
+            <label class="modal-field">
+              <span>Сортировка</span>
+              <select name="sort_by">
+                <option value="">По умолчанию</option>
+                <option value="name_asc">Имя A–Я</option>
+                <option value="name_desc">Имя Я–A</option>
+                <option value="movies_desc">По количеству фильмов</option>
+                <option value="rating_desc">По рейтингу</option>
+              </select>
+            </label>
+            
+            <div class="filter-actions">
+              <button type="submit" class="btn btn-primary small">
+                <span class="material-symbols-outlined">search</span>
+                Применить
+              </button>
+              <button type="button" id="resetDirectorsFilter" class="btn btn-secondary small">
+                <span class="material-symbols-outlined">refresh</span>
+                Сбросить
+              </button>
+            </div>
+          </form>
+
+          <div id="directorsList" class="people-grid"></div>
+        </section>
+      </div>
+    </main>
+
+    <div id="site-footer"></div>
+    <div id="site-modals"></div>
+  </div>
+
+  <script src="../js/api.js"></script>
+  <script src="../js/layout.js"></script>
+  <script src="../js/directors-page.js"></script>
+</body>
+</html>
